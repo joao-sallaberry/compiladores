@@ -54,10 +54,26 @@ void print_keyword_table() {
 
 
 /*** symbols ***/
-typedef struct symbol {
+typedef enum {T_INT, T_FLOAT, T_BOOL, T_CHAR} symbol_type_t;
+typedef enum {C_FUNCTION, C_VARIABLE} symbol_class_t;
+
+typedef struct symbol_table symbol_table_t;
+typedef struct symbol symbol_t;
+
+struct symbol {
+    symbol_type_t type;
     char* value;
-    struct symbol *next;
-} symbol_t;
+    symbol_class_t class;
+    int offset;
+    symbol_table_t *sb_table;
+    symbol_t *next;
+};
+
+struct symbol_table {
+    int size;
+    symbol_table_t *parent;
+    symbol_t *symbol_list;
+};
 
 
 symbol_t *first_symbol = NULL;
