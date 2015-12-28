@@ -1,13 +1,21 @@
 # this is a comment
-#int thales = funcao(5) <=5;
 
-int a;
-int b;
 
+int fatorial(int n)
+    int fat;
+    fat = 1;
+
+    while n > 0 do
+    	  fat = fat * n;
+	  n = n - 1;
+    end
+ 
+    ret fatorial;
+end
+ 
 int main()
     int x;
+    x = fatorial(10);
 
-    if a then
-       x = true;
-    end
+    ret 0;
 end
